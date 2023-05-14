@@ -5,22 +5,24 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if(req.method !== 'POST') res.status(405).end()
-  const { email, username, password, name} = req.body
-  
+  if (req.method !== 'POST') res.status(405).end()
+  const { email, username, password, name } = req.body
+
   try {
     const hashedPassword = await bcrypt.hash(password, 12)
 
     const user = await prisma.user.findUnique({
-      where: email
+      where: {
+        email: email
+      }
     })
     if (user) return res.status(500).json('User already exists')
-  
+
     const userCreated = await prisma.user.create({
-      data: { 
-        email, 
-        username, 
-        name, 
+      data: {
+        email,
+        username,
+        name,
         hashedPassword
       }
     })
