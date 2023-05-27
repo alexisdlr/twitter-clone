@@ -1,4 +1,5 @@
 import useCurrentUser from "@/hooks/useCurrentUser";
+import Image from "next/image";
 
 const ProfileItem = () => {
   const { data: user } = useCurrentUser();
@@ -21,9 +22,12 @@ const ProfileItem = () => {
       "
     >
       <div>
-        <img
+        <Image
+          height={40}
+          width={40}
+          style={{ borderRadius: "100%" }}
           className="w-10 h-10 rounded-full "
-          src="https://pbs.twimg.com/profile_images/1339638610165821440/TSadIsCG_400x400.jpg"
+          src={user?.profileImage || "/images/placeholder.png"}
           alt="user"
         />
       </div>
