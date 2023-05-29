@@ -41,7 +41,7 @@ const ImageUpload = ({
     disabled,
     accept: {
       "image/jpeg": [],
-      "images/png": [],
+      "image/png": [],
     },
   });
   return (
