@@ -10,7 +10,6 @@ const UserView = () => {
   const { userId } = router.query;
   const { data: fetchedUser, isLoading } = useUser(userId as string);
 
-  console.log(fetchedUser);
   if (isLoading || !fetchedUser) {
     return (
       <div
@@ -25,9 +24,10 @@ const UserView = () => {
       </div>
     );
   }
+  console.log(fetchedUser, "fetched users");
   return (
     <>
-      <Header showBackArrow label={fetchedUser.name} />
+      <Header showBackArrow label={fetchedUser?.name} />
       <UserHero userId={userId as string} />
       <UserBio userId={userId as string} />
     </>

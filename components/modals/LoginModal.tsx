@@ -26,7 +26,7 @@ const LoginModal = () => {
         toast.error("Any field can be empty.");
         return;
       }
-      signIn("credentials", { email, password });
+      await signIn("credentials", { email, password });
       toast.success("Signed In");
       loginModal.onClose();
     } catch (error) {
