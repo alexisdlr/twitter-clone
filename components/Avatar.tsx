@@ -39,7 +39,7 @@ const Avatar = ({ userId, isLarge, hasBorder }: AvatarProps) => {
         style={{ objectFit: "cover", borderRadius: "100%" }}
         alt="Avatar"
         onClick={handleClick}
-        src={fetchedUser?.profilePic || "/images/placeholder.png"}
+        src={fetchedUser?.profileImage || "/images/placeholder.png"}
       />
     </div>
   );
