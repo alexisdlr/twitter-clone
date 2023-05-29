@@ -1,5 +1,6 @@
 import useCurrentUser from "@/hooks/useCurrentUser";
 import Image from "next/image";
+import Avatar from "../Avatar";
 
 const ProfileItem = () => {
   const { data: user } = useCurrentUser();
@@ -22,14 +23,7 @@ const ProfileItem = () => {
       "
     >
       <div>
-        <Image
-          height={40}
-          width={40}
-          style={{ borderRadius: "100%" }}
-          className="w-10 h-10 rounded-full "
-          src={user?.profileImage || "/images/placeholder.png"}
-          alt="user"
-        />
+        <Avatar userId={user.id as string} />
       </div>
       <div className="flex flex-col items-start justify-center gap-[2px]">
         <h2 className="text-white font-semibold text-lg">{user.name}</h2>
